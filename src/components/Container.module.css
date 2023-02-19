@@ -1,0 +1,22 @@
+.container {
+    width: 400px;
+    padding: 15px 30px;   
+} 
+
+.phonebook{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.23;
+    color: black;
+}
+
+.contacts{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 1.23;
+    color: black;
+}
