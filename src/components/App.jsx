@@ -50,27 +50,36 @@ export class App extends Component {
     });
   };
 
-  render() {
-    const filterContacts = this.state.contacts.filter(contact =>
+  getFilteredContacts = () =>
+    this.state.contacts.filter(contact =>
       contact.name
         .toLowerCase()
         .trim()
         .includes(this.state.filter.toLowerCase())
     );
 
+  render() {
+    const filterContacts = this.getFilteredContacts();
+
     return (
       <div className={css.container}>
         <h1 className={css.phonebook}>Phonebook</h1>
         <ContactForm onSubmit={this.addContacts} />
         <h2 className={css.contacts}>Contacts</h2>
-        <Filter
-          onFilterChange={this.handleFilterContacts}
-          value={this.state.filter}
-        />
-        <ContactList
-          contacts={filterContacts}
-          onButtonDelete={this.handleDeleteContacts}
-        />
+        {this.state.contacts.length > 0 ? (
+          <>
+            <Filter
+              onFilterChange={this.handleFilterContacts}
+              value={this.state.filter}
+            />
+            <ContactList
+              contacts={filterContacts}
+              onButtonDelete={this.handleDeleteContacts}
+            />
+          </>
+        ) : (
+          'The Phonebook is empty. Please add a new contact.'
+        )}
       </div>
     );
   }
