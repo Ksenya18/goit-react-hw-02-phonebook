@@ -78,7 +78,7 @@ export class App extends Component {
             />
           </>
         ) : (
-          'The Phonebook is empty. Please add a new contact.'
+          <p>The Phonebook is empty. Please add a new contact.</p>
         )}
       </div>
     );
